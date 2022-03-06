@@ -10,14 +10,14 @@ require('./globals.js');
 module.exports = (io, app) => {
   io.on('connection', (socket) => {
     let windowID = socket;
-    socket.emit('wait', { "message": "Please wait...connecting you to another user!"});
+    socket.emit('wait', { "message": "Please wait... Finding a user to connect you with!"});
     //push the user to avilable users list
       availableUsers.push(socket);
       let resolveAfter5Seconds = () => {
         return new Promise(resolve => {
           setTimeout(() => {
             resolve('resolved');
-          }, 5000);
+          }, 10000);
         });
       }
       async function asyncCall() {
@@ -64,7 +64,7 @@ module.exports = (io, app) => {
                 socket.join(uID);
                 socket.roomID = uID;
                 socket.emit('private ack', { "message": "Added to privateRoom", "roomID": uID });
-                console.log('Private Ack, Added to privateroom: {roomID}{uID} ');
+                console.log("Private Ack, Added user to a privateroom: " + uID );
               }
             });
           }
@@ -86,6 +86,8 @@ module.exports = (io, app) => {
       index = rooms.findIndex(x => x.roomID == windowID.roomID);
       if(index >= 0){
         if(rooms[index].isFilled == true){
+          //let timeStamp = moment().format('LT');
+          //io.sockets.in(windowID.roomID).emit('newMessage', { "message": "Other user has disconnected." , "senderId": "system", "timeStamp": timeStamp});
           let warning = { "title": "User has disconnected.", "message": "Please click 'New' to try connecting with someone else." };
           io.sockets.in(windowID.roomID).emit('alone', { "warning": warning, "roomID": windowID.roomID });
           rooms.splice(index,1);

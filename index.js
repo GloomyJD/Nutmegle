@@ -5,10 +5,13 @@ const faker = require('faker');
 const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3000;
 require('./socketserver.js')(io, app);
 require('./globals.js');
 
+var firstnameitem = defaultfirstname[Math.floor(Math.random() * defaultfirstname.length)];
+var secondnameitem = defaultsecondname[Math.floor(Math.random() * defaultsecondname.length)];
+var generatedfullname = firstnameitem + " " + secondnameitem;
 
 
 app.set('view engine', 'hbs');
@@ -27,8 +30,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/chat', (req, res) => {
-  let randomName = faker.name.findName();
-  res.render('chat', { userName: randomName });
+  //let randomName = faker.name.findName();
+  //res.render('chat', { userName: randomName });
+  let randomName = generatedfullname;
+  res.render('chat', { userName: randomName});
 });
 
 server.listen(port, () => {
