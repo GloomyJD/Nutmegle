@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
     noOfUsers = noOfUsers + " users";
   }
   else {
-    noOfUsers = noOfUsers + " user";
+    noOfUsers = "No users";
   }
   res.render('index', { noOfUsers: noOfUsers });
 });

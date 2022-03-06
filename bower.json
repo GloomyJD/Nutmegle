@@ -1,12 +1,12 @@
 {
-  "name": "omeclone",
+  "name": "Nutmegle",
   "description": "Clone of omegle.com",
   "main": "index.js",
   "authors": [
-    "Sumedh Nimkarde <blesssumedh@gmail.com>"
+    "Light Harrison <GloomyJD@outlook.com>"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/wdlsvnit/Omeclone",
+  "homepage": "https://github.com/GloomyJD/Nutmegle",
   "private": true,
   "ignore": [
     "**/.*",

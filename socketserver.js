@@ -10,7 +10,7 @@ require('./globals.js');
 module.exports = (io, app) => {
   io.on('connection', (socket) => {
     let windowID = socket;
-    socket.emit('wait', { "message": "Please wait...connecting you to stranger!"});
+    socket.emit('wait', { "message": "Please wait...connecting you to another user!"});
     //push the user to avilable users list
       availableUsers.push(socket);
       let resolveAfter5Seconds = () => {
@@ -38,7 +38,7 @@ module.exports = (io, app) => {
             // socket.join(uID);
             // // emit the room id to the frontend side.
             // socket.emit('private ack', { "message": "Added to privateRoom", "roomID": uID });
-            socket.emit('ack', { id: socket.id, msg: "User connected" });
+            socket.emit('ack', { id: socket.id, msg: "User connected!" });
             onlineUsers.push(socket);
 
             socket.on('privateRoom', (user) => {
@@ -55,7 +55,7 @@ module.exports = (io, app) => {
                 unfilledRooms[0].isFilled = true;
                 socket.emit('private ack', { "message": "Added to privateRoom", "roomID": unfilledRooms[0].roomID });
                 socket.roomID = unfilledRooms[0].roomID;
-                io.sockets.in(socket.roomID).emit('toast', { "message": "You are connected with a stranger!"});
+                io.sockets.in(socket.roomID).emit('toast', { "message": "You are connected with a user!"});
               }
               catch(e) {
                 // dont have unfilled rooms. Thus creating a new user.
@@ -64,6 +64,7 @@ module.exports = (io, app) => {
                 socket.join(uID);
                 socket.roomID = uID;
                 socket.emit('private ack', { "message": "Added to privateRoom", "roomID": uID });
+                console.log('Private Ack, Added to privateroom: {roomID}{uID} ');
               }
             });
           }
@@ -85,7 +86,7 @@ module.exports = (io, app) => {
       index = rooms.findIndex(x => x.roomID == windowID.roomID);
       if(index >= 0){
         if(rooms[index].isFilled == true){
-          let warning = { "title": "Stranger is disconnected!", "message": "Please click on 'New' button to connect to someone else." };
+          let warning = { "title": "User has disconnected.", "message": "Please click 'New' to try connecting with someone else." };
           io.sockets.in(windowID.roomID).emit('alone', { "warning": warning, "roomID": windowID.roomID });
           rooms.splice(index,1);
         }
