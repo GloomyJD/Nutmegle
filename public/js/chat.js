@@ -33,7 +33,7 @@
     };
     toastr.success(data.message);
     message.disabled = false;
-    message.placeholder = "Enter the message here...";
+    message.placeholder = "Enter your message here...";
     message.focus();
     resetTimer();
   });
@@ -172,7 +172,7 @@
   }
   let resetTimer = () => {
       clearTimeout(t);
-      t = setTimeout(kick, 60000);  // time is in milliseconds
+      t = setTimeout(kick, 600000);  // time is in milliseconds
   }
 
 })();

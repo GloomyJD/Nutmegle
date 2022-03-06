@@ -88,7 +88,7 @@ module.exports = (io, app) => {
         if(rooms[index].isFilled == true){
           //let timeStamp = moment().format('LT');
           //io.sockets.in(windowID.roomID).emit('newMessage', { "message": "Other user has disconnected." , "senderId": "system", "timeStamp": timeStamp});
-          let warning = { "title": "User has disconnected.", "message": "Please click 'New' to try connecting with someone else." };
+          let warning = { "title": "User has disconnected.", "message": "Please click 'New Chat' to try connecting with someone else." };
           io.sockets.in(windowID.roomID).emit('alone', { "warning": warning, "roomID": windowID.roomID });
           rooms.splice(index,1);
         }

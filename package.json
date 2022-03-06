@@ -29,7 +29,10 @@
     "moment": "^2.20.1",
     "pm2": "^2.10.1",
     "socket.io": "^2.0.4",
-    "uniqid": "^4.1.1"
+    "uniqid": "^4.1.1",
+    "nodemon": "^1.19.4",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.7.2"
   },
   "devDependencies": {
     "babel-preset-latest": "^6.24.1"
