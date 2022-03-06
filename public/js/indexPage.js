@@ -2,7 +2,7 @@ let play = document.querySelector('#termsAndCo');
 let checkBox = document.querySelector('#squaredOne');
 let validate = document.querySelector("#usereventcode");
 
-var validationcode = systemeventcode
+var validationcode = "abc"
 
 checkBox.addEventListener('click', () => {
     if (checkBox.checked == true && validate.value == validationcode) {
