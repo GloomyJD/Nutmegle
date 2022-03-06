@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Nutmegle: Chat with Strangers" />
+    <meta property="og:title" content="Nutmegle: One to one chat." />
     <meta property="og:description" content="Nutmegle is a platform to meet new friends." />
     <meta property="og:image:secure_url" content="/images/meta_image.png" />
     <meta property="og:image:type" content="image/png" />
@@ -21,15 +21,18 @@
     <div class="ui menu">
         <div class="item left floated">
             <div class="ui header">
+                <!-- This is the title at the top left.-->
                 <h1 class="sty">Nutmegle</h1>
             </div>
         </div>
         <div class="item right floated">
+            <!-- This is the user coount at the top right.-->
             <h2 class="sty user_text">{{ noOfUsers }} online</h2>
         </div>
     </div>
     <div class="ui grid divided">
         <div class="eight wide computer eight wide tablet sixteen wide mobile column center aligned top_clear">
+            <!-- This is the information text on the left of the page.-->
             <p class="sty add">Nutmegle lets you connect with another user at random for a one on one chat. Your chats are end to end encrypted. Talk to new friends and have fun!</p>
             <p class="sty add">For any feedback, you can click
                 <a href="https://github.com/GloomyJD/Nutmegle/issues" target="_blank" class="link">here</a> to submit an issue on GitHub.</p>
@@ -42,6 +45,7 @@
                             <div class="header">
                                 <i class="hand point up icon"></i>
                             </div>
+                            <!--Start of the "instructions" on the right of the page.-->
                             <div class="description">Click on the “CHAT WITH A USER!” button on your device screen.</div>
                         </div>
                     </div>
@@ -73,6 +77,7 @@
                             <div class="description">
                                 To find a new partner, click on the new button and a new partner will be searched for.
                             </div>
+                            <!-- End of "instructions".-->
                         </div>
                     </div>
                 </div>
@@ -86,6 +91,12 @@
             <div class="five wide computer five wide tablet three wide mobile column"></div>
             <div class="six wide computer six wide tablet ten wide mobile column center aligned">
                 <div class="ui hidden divider"></div>
+                <div class="input">
+                    <span class="agree_text">Enter a username:
+                    </span>
+                </br>
+                <input type="text" id="manualusername">
+                </div>
                 <div class="input">
                     <input type="checkbox" id="squaredOne">
                     <span class="agree_text">I agree to all the
