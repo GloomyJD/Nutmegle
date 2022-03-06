@@ -5,6 +5,7 @@ const faker = require('faker');
 const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
+const moment = require('moment');
 const port = process.env.PORT || 3000;
 require('./socketserver.js')(io, app);
 require('./globals.js');
@@ -37,5 +38,8 @@ app.get('/chat', (req, res) => {
 });
 
 server.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log('Welcome to Nutmegle Server')
+  let ServerStartTime = moment.utc().format();
+  console.log(`Running on port ${port}`);
+  console.log('Server started at ' + ServerStartTime + " (UTC)")
 });
