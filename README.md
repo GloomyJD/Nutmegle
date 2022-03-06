@@ -1,6 +1,6 @@
 # Nutmegle
 
-Nutmegle is a platform built upon Omeclone where you can chat with other users, make new friends.
+Nutmegle is a platform built upon Omeclone where you can chat with other users and make new friends.
 
 ## Prerequisites
 
